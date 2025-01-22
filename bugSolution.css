@@ -1,0 +1,24 @@
+/* bugSolution.css */
+
+.element:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #4CAF50;
+}
+
+.element:focus-visible {
+  outline: none; /* added for consistency with fallback */
+  box-shadow: 0 0 0 4px #4CAF50; /* More prominent focus visible */
+}
+
+/* Javascript fallback to add the more prominent focus style to older browsers */
+
+const elements = document.querySelectorAll('.element');
+
+elements.forEach(element => {
+  element.addEventListener('focus', () => {
+    element.classList.add('focused');
+  });
+  element.addEventListener('blur', () => {
+    element.classList.remove('focused');
+  });
+});
